@@ -1,10 +1,10 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: myapp
+  name: runner
   namespace: default
 spec:
-  replicas: 4
+  replicas: 1
 
   selector:
     matchLabels:
@@ -17,14 +17,12 @@ spec:
       serviceAccountName: discoverer
       containers:
         - name: myapp
-          image: rel-cluster
-          imagePullPolicy: "Always"
-
+          image: elix-cluster
+          imagePullPolicy: "IfNotPresent"
           resources:
             limits:
               memory: "256Mi"
               cpu: "300m"
-
           tty: true
           stdin: true
           # ports:
@@ -40,4 +38,9 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.podIP
-          # command: ["./bin/myapp", "start_iex"]
+          command: ["bash"]
+          # args:
+          #   - "-c"
+          #   - iex --cookie $(echo $ERLANG_COOKIE) --name $(echo k8_cluster@$(echo $POD_IP)) -S mix
+
+          # iex --cookie $(echo $ERLANG_COOKIE) --name $(echo k8_cluster@$(echo $POD_IP)) -S mix

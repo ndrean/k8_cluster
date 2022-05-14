@@ -24,10 +24,9 @@ defmodule K8Cluster.Application do
     ]
 
     cookie = Application.get_env(:k8_cluster, :cookie) |> String.to_atom()
-    Node.set_cookie(node(), cookie)
+    unless node() == :nonode@nohost, do: Node.set_cookie(node(), cookie)
 
-    Logger.debug("#{K8Cluster.hello()} from #{inspect(node())}")
-    Logger.warn("#{System.get_env("RELEASE_NODE")}")
+    Logger.debug("#{K8Cluster.hello()} from #{inspect(node())}", ansi_color: :green)
 
     children = [
       {Cluster.Supervisor, [topologies, [name: K8Cluster.ClusterSupervisor]]}

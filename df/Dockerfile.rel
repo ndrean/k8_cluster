@@ -1,7 +1,3 @@
-##### Use the commands:
-# docker build -t localhost:5000/k8cluster .
-# docker run --rm  -it --user=root caching:test
-
 # Build Stage using a pre-build release launcher
 FROM  bitwalker/alpine-elixir:latest AS build
 
@@ -48,11 +44,7 @@ WORKDIR /opt/app
 COPY --from=build /opt/release/_build/$MIX_ENV/rel/${REL_NAME} ./
 
 # COPY entrypoint.sh /entrypoint.sh
-
-# EXPOSE 4000
-
 # ENTRYPOINT ["/sbin/tini", "--", "/entrypoint.sh"]
 
 # Start your app
-# CMD ["sh"]
 CMD ["./bin/myapp", "start"]
