@@ -1,0 +1,356 @@
+* 
+* ==> Audit <==
+* |--------------|-------------------------------------------------------------------------------------------------------|----------|-------------|---------|-------------------------------|-------------------------------|
+|   Command    |                                                 Args                                                  | Profile  |    User     | Version |          Start Time           |           End Time            |
+|--------------|-------------------------------------------------------------------------------------------------------|----------|-------------|---------|-------------------------------|-------------------------------|
+| kubectl      | -- get pods -A                                                                                        | minikube | utilisateur | v1.25.2 | Sun, 08 May 2022 22:32:15 -05 | Sun, 08 May 2022 22:32:22 -05 |
+| stop         |                                                                                                       | minikube | utilisateur | v1.25.2 | Sun, 08 May 2022 22:32:37 -05 | Sun, 08 May 2022 22:32:55 -05 |
+| start        | --kubernetes-version=v1.23.3                                                                          | minikube | utilisateur | v1.25.2 | Sun, 08 May 2022 22:33:04 -05 | Sun, 08 May 2022 22:36:25 -05 |
+| start        | --kubernetes-version=v1.23.3                                                                          | minikube | utilisateur | v1.25.2 | Sun, 08 May 2022 22:49:38 -05 | Sun, 08 May 2022 22:50:04 -05 |
+| start        | --kubernetes-version=v1.23.3                                                                          | minikube | utilisateur | v1.25.2 | Sun, 08 May 2022 22:56:03 -05 | Sun, 08 May 2022 22:56:24 -05 |
+| stop         |                                                                                                       | minikube | utilisateur | v1.25.2 | Sun, 08 May 2022 23:11:34 -05 | Sun, 08 May 2022 23:11:51 -05 |
+| start        |                                                                                                       | minikube | utilisateur | v1.25.2 | Sun, 08 May 2022 23:13:29 -05 | Sun, 08 May 2022 23:19:38 -05 |
+| stop         |                                                                                                       | minikube | utilisateur | v1.25.2 | Sun, 08 May 2022 23:47:58 -05 | Sun, 08 May 2022 23:48:16 -05 |
+| start        |                                                                                                       | minikube | utilisateur | v1.25.2 | Wed, 11 May 2022 21:44:05 -05 | Wed, 11 May 2022 21:44:53 -05 |
+| stop         |                                                                                                       | minikube | utilisateur | v1.25.2 | Wed, 11 May 2022 21:53:52 -05 | Wed, 11 May 2022 21:54:07 -05 |
+| update-check |                                                                                                       | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 01:32:10 -05 | Thu, 12 May 2022 01:32:11 -05 |
+| start        |                                                                                                       | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 02:04:52 -05 | Thu, 12 May 2022 02:06:11 -05 |
+| -p           | minikube docker-env --shell sh                                                                        | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 03:49:23 -05 | Thu, 12 May 2022 03:49:25 -05 |
+| -p           | minikube version                                                                                      | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 03:49:25 -05 | Thu, 12 May 2022 03:49:25 -05 |
+| docker-env   |                                                                                                       | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 03:55:56 -05 | Thu, 12 May 2022 03:55:59 -05 |
+| -p           | minikube docker-env                                                                                   | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 03:56:37 -05 | Thu, 12 May 2022 03:56:39 -05 |
+| -p           | minikube docker-env --shell sh                                                                        | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 04:05:38 -05 | Thu, 12 May 2022 04:05:40 -05 |
+| -p           | minikube version                                                                                      | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 04:05:40 -05 | Thu, 12 May 2022 04:05:40 -05 |
+| -p           | minikube docker-env --shell sh                                                                        | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 04:08:49 -05 | Thu, 12 May 2022 04:08:51 -05 |
+| -p           | minikube version                                                                                      | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 04:08:51 -05 | Thu, 12 May 2022 04:08:51 -05 |
+| stop         |                                                                                                       | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 04:12:07 -05 | Thu, 12 May 2022 04:12:34 -05 |
+| start        |                                                                                                       | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 04:28:52 -05 | Thu, 12 May 2022 04:30:14 -05 |
+| -p           | minikube docker-env --shell sh                                                                        | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 04:30:25 -05 | Thu, 12 May 2022 04:30:28 -05 |
+| -p           | minikube version                                                                                      | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 04:30:28 -05 | Thu, 12 May 2022 04:30:28 -05 |
+| start        | -p minikube                                                                                           | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 04:39:42 -05 | Thu, 12 May 2022 04:41:46 -05 |
+| delete       | -p minikube                                                                                           | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 04:41:46 -05 | Thu, 12 May 2022 04:41:58 -05 |
+| unpause      | -p minikube                                                                                           | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 04:51:32 -05 | Thu, 12 May 2022 04:51:34 -05 |
+| stop         |                                                                                                       | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 05:04:22 -05 | Thu, 12 May 2022 05:04:24 -05 |
+| start        | --kubernetes-version=v1.23.3                                                                          | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 08:56:26 -05 | Thu, 12 May 2022 08:59:49 -05 |
+| stop         |                                                                                                       | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 09:00:13 -05 | Thu, 12 May 2022 09:00:36 -05 |
+| start        |                                                                                                       | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 09:01:14 -05 | Thu, 12 May 2022 09:03:57 -05 |
+| start        | --kubernetes-version=v1.23.3                                                                          | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 09:07:52 -05 | Thu, 12 May 2022 09:10:00 -05 |
+| config       | set driver docker                                                                                     | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 09:10:05 -05 | Thu, 12 May 2022 09:10:05 -05 |
+| stop         |                                                                                                       | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 09:10:15 -05 | Thu, 12 May 2022 09:10:38 -05 |
+| delete       |                                                                                                       | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 09:10:42 -05 | Thu, 12 May 2022 09:10:51 -05 |
+| config       | set driver docker                                                                                     | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 09:10:59 -05 | Thu, 12 May 2022 09:10:59 -05 |
+| start        |                                                                                                       | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 09:11:06 -05 | Thu, 12 May 2022 09:12:27 -05 |
+| start        | -p minikube --driver=docker                                                                           | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 09:13:59 -05 | Thu, 12 May 2022 09:16:42 -05 |
+|              | --container-runtime=containerd                                                                        |          |             |         |                               |                               |
+| ssh          | sudo sed \-i                                                                                          | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 09:16:42 -05 | Thu, 12 May 2022 09:16:44 -05 |
+|              | s,\\[plugins.cri.registry.mirrors\\],[plugins.cri.registry.mirrors]\\n\                               |          |             |         |                               |                               |
+|              | \ \ \ \ \ \ \ [plugins.cri.registry.mirrors.\"localhost:5000\"]\\n\                                   |          |             |         |                               |                               |
+|              | \ \ \ \ \ \ \ \ \ endpoint\ =\ [\"http://172.17.0.2:5000\"],                                          |          |             |         |                               |                               |
+|              | /etc/containerd/config.toml                                                                           |          |             |         |                               |                               |
+| ssh          | sudo systemctl restart                                                                                | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 09:16:44 -05 | Thu, 12 May 2022 09:16:45 -05 |
+|              | containerd                                                                                            |          |             |         |                               |                               |
+| update-check |                                                                                                       | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 09:27:29 -05 | Thu, 12 May 2022 09:27:31 -05 |
+| start        |                                                                                                       | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 09:32:01 -05 | Thu, 12 May 2022 09:35:05 -05 |
+| delete       | -p minikube                                                                                           | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 09:35:36 -05 | Thu, 12 May 2022 09:35:50 -05 |
+| start        | -p minikube --driver=docker                                                                           | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 09:35:52 -05 | Thu, 12 May 2022 09:39:24 -05 |
+|              | --container-runtime=containerd                                                                        |          |             |         |                               |                               |
+|              | --extra-config=kubelet.max-pods=500                                                                   |          |             |         |                               |                               |
+|              | --kubernetes-version                                                                                  |          |             |         |                               |                               |
+|              | v1.23.2 --insecure-registry                                                                           |          |             |         |                               |                               |
+|              | ctlptl-registry:5000                                                                                  |          |             |         |                               |                               |
+| -p           | minikube --node minikube ssh sudo sed \-i                                                             | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 09:39:25 -05 | Thu, 12 May 2022 09:39:27 -05 |
+|              | s,\\\[plugins.\\\(\\\"\\\?.*cri\\\"\\\?\\\).registry.mirrors\\\],[plugins.\\\1.registry.mirrors]\\\n\ |          |             |         |                               |                               |
+|              | \ \ \ \ \ \ \ [plugins.\\\1.registry.mirrors.\\\"localhost:52026\\\"]\\\n\ \ \ \ \ \ \ \ \ \          |          |             |         |                               |                               |
+|              | endpoint\ =\ [\\\"http://ctlptl-registry:5000\\\"], /etc/containerd/config.toml                       |          |             |         |                               |                               |
+| -p           | minikube --node minikube                                                                              | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 09:39:27 -05 | Thu, 12 May 2022 09:39:29 -05 |
+|              | ssh sudo systemctl restart                                                                            |          |             |         |                               |                               |
+|              | containerd                                                                                            |          |             |         |                               |                               |
+| delete       | -p minikube                                                                                           | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 09:40:41 -05 | Thu, 12 May 2022 09:40:50 -05 |
+| start        | -p minikube --driver=docker                                                                           | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 09:40:50 -05 | Thu, 12 May 2022 09:43:33 -05 |
+|              | --container-runtime=containerd                                                                        |          |             |         |                               |                               |
+|              | --extra-config=kubelet.max-pods=500                                                                   |          |             |         |                               |                               |
+|              | --kubernetes-version                                                                                  |          |             |         |                               |                               |
+|              | v1.23.3 --insecure-registry                                                                           |          |             |         |                               |                               |
+|              | ctlptl-registry:5000                                                                                  |          |             |         |                               |                               |
+| -p           | minikube --node minikube ssh sudo sed \-i                                                             | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 09:43:34 -05 | Thu, 12 May 2022 09:43:36 -05 |
+|              | s,\\\[plugins.\\\(\\\"\\\?.*cri\\\"\\\?\\\).registry.mirrors\\\],[plugins.\\\1.registry.mirrors]\\\n\ |          |             |         |                               |                               |
+|              | \ \ \ \ \ \ \ [plugins.\\\1.registry.mirrors.\\\"localhost:52026\\\"]\\\n\ \ \ \ \ \ \ \ \ \          |          |             |         |                               |                               |
+|              | endpoint\ =\ [\\\"http://ctlptl-registry:5000\\\"], /etc/containerd/config.toml                       |          |             |         |                               |                               |
+| -p           | minikube --node minikube                                                                              | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 09:43:36 -05 | Thu, 12 May 2022 09:43:39 -05 |
+|              | ssh sudo systemctl restart                                                                            |          |             |         |                               |                               |
+|              | containerd                                                                                            |          |             |         |                               |                               |
+| delete       | -p minikube                                                                                           | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 10:45:34 -05 | Thu, 12 May 2022 10:45:45 -05 |
+| start        | -p minikube --driver=docker                                                                           | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 10:46:31 -05 | Thu, 12 May 2022 10:49:03 -05 |
+|              | --container-runtime=containerd                                                                        |          |             |         |                               |                               |
+|              | --extra-config=kubelet.max-pods=500                                                                   |          |             |         |                               |                               |
+|              | --cpus=3 --insecure-registry                                                                          |          |             |         |                               |                               |
+|              | ctlptl-registry:5000                                                                                  |          |             |         |                               |                               |
+| -p           | minikube --node minikube ssh sudo sed \-i                                                             | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 10:49:04 -05 | Thu, 12 May 2022 10:49:06 -05 |
+|              | s,\\\[plugins.\\\(\\\"\\\?.*cri\\\"\\\?\\\).registry.mirrors\\\],[plugins.\\\1.registry.mirrors]\\\n\ |          |             |         |                               |                               |
+|              | \ \ \ \ \ \ \ [plugins.\\\1.registry.mirrors.\\\"localhost:5000\\\"]\\\n\ \ \ \ \ \ \ \ \ \ endpoint\ |          |             |         |                               |                               |
+|              | =\ [\\\"http://ctlptl-registry:5000\\\"], /etc/containerd/config.toml                                 |          |             |         |                               |                               |
+| -p           | minikube --node minikube                                                                              | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 10:49:06 -05 | Thu, 12 May 2022 10:49:09 -05 |
+|              | ssh sudo systemctl restart                                                                            |          |             |         |                               |                               |
+|              | containerd                                                                                            |          |             |         |                               |                               |
+| update-check |                                                                                                       | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 14:41:39 -05 | Thu, 12 May 2022 14:41:41 -05 |
+| ssh          |                                                                                                       | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 21:10:28 -05 | Thu, 12 May 2022 21:15:35 -05 |
+| stop         |                                                                                                       | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 22:45:48 -05 | Thu, 12 May 2022 22:46:13 -05 |
+| start        |                                                                                                       | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 22:49:53 -05 | Thu, 12 May 2022 22:50:50 -05 |
+| stop         |                                                                                                       | minikube | utilisateur | v1.25.2 | Thu, 12 May 2022 22:53:46 -05 | Thu, 12 May 2022 22:54:11 -05 |
+| update-check |                                                                                                       | minikube | utilisateur | v1.25.2 | Fri, 13 May 2022 10:41:46 -05 | Fri, 13 May 2022 10:41:47 -05 |
+|--------------|-------------------------------------------------------------------------------------------------------|----------|-------------|---------|-------------------------------|-------------------------------|
+
+* 
+* ==> Last Start <==
+* Log file created at: 2022/05/13 17:13:11
+Running on machine: MacBookND
+Binary: Built with gc go1.17.6 for darwin/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0513 17:13:11.601739   64455 out.go:297] Setting OutFile to fd 1 ...
+I0513 17:13:11.601997   64455 out.go:349] isatty.IsTerminal(1) = true
+I0513 17:13:11.602003   64455 out.go:310] Setting ErrFile to fd 2...
+I0513 17:13:11.602010   64455 out.go:349] isatty.IsTerminal(2) = true
+I0513 17:13:11.602159   64455 root.go:315] Updating PATH: /Users/utilisateur/.minikube/bin
+I0513 17:13:11.603078   64455 out.go:304] Setting JSON to false
+I0513 17:13:11.657950   64455 start.go:112] hostinfo: {"hostname":"MacBookND.local","uptime":118781,"bootTime":1652361210,"procs":409,"os":"darwin","platform":"darwin","platformFamily":"Standalone Workstation","platformVersion":"10.15.7","kernelVersion":"19.6.0","kernelArch":"x86_64","virtualizationSystem":"","virtualizationRole":"","hostId":"cfa227c3-481c-53c2-9c33-6399b9ea3ed3"}
+W0513 17:13:11.658128   64455 start.go:120] gopshost.Virtualization returned error: not implemented yet
+I0513 17:13:11.663969   64455 out.go:176] 😄  minikube v1.25.2 on Darwin 10.15.7
+I0513 17:13:11.664593   64455 notify.go:193] Checking for updates...
+I0513 17:13:11.665887   64455 config.go:176] Loaded profile config "minikube": Driver=docker, ContainerRuntime=containerd, KubernetesVersion=v1.23.3
+I0513 17:13:11.666905   64455 driver.go:344] Setting default libvirt URI to qemu:///system
+I0513 17:13:11.845270   64455 docker.go:132] docker version: linux-20.10.14
+I0513 17:13:11.845749   64455 cli_runner.go:133] Run: docker system info --format "{{json .}}"
+I0513 17:13:12.266678   64455 info.go:263] docker info: {ID:HMK4:3R3N:GQVZ:IA67:XZ5T:PHAT:ZV5J:5LYL:WQUJ:C6CW:NF45:HONQ Containers:2 ContainersRunning:1 ContainersPaused:0 ContainersStopped:1 Images:23 Driver:overlay2 DriverStatus:[[Backing Filesystem extfs] [Supports d_type true] [Native Overlay Diff true] [userxattr false]] SystemStatus:<nil> Plugins:{Volume:[local] Network:[bridge host ipvlan macvlan null overlay] Authorization:<nil> Log:[awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog]} MemoryLimit:true SwapLimit:true KernelMemory:false KernelMemoryTCP:false CPUCfsPeriod:true CPUCfsQuota:true CPUShares:true CPUSet:true PidsLimit:true IPv4Forwarding:true BridgeNfIptables:true BridgeNfIP6Tables:true Debug:false NFd:54 OomKillDisable:false NGoroutines:54 SystemTime:2022-05-13 22:13:12.050838864 +0000 UTC LoggingDriver:json-file CgroupDriver:cgroupfs NEventsListener:4 KernelVersion:5.10.104-linuxkit OperatingSystem:Docker Desktop OSType:linux Architecture:x86_64 IndexServerAddress:https://index.docker.io/v1/ RegistryConfig:{AllowNondistributableArtifactsCIDRs:[] AllowNondistributableArtifactsHostnames:[] InsecureRegistryCIDRs:[127.0.0.0/8] IndexConfigs:{DockerIo:{Name:docker.io Mirrors:[] Secure:true Official:true}} Mirrors:[]} NCPU:4 MemTotal:8346968064 GenericResources:<nil> DockerRootDir:/var/lib/docker HTTPProxy:http.docker.internal:3128 HTTPSProxy:http.docker.internal:3128 NoProxy:hubproxy.docker.internal Name:docker-desktop Labels:[] ExperimentalBuild:false ServerVersion:20.10.14 ClusterStore: ClusterAdvertise: Runtimes:{Runc:{Path:runc}} DefaultRuntime:runc Swarm:{NodeID: NodeAddr: LocalNodeState:inactive ControlAvailable:false Error: RemoteManagers:<nil>} LiveRestoreEnabled:false Isolation: InitBinary:docker-init ContainerdCommit:{ID:3df54a852345ae127d1fa3092b95168e4a88e2f8 Expected:3df54a852345ae127d1fa3092b95168e4a88e2f8} RuncCommit:{ID:v1.0.3-0-gf46b6ba Expected:v1.0.3-0-gf46b6ba} InitCommit:{ID:de40ad0 Expected:de40ad0} SecurityOptions:[name=seccomp,profile=default name=cgroupns] ProductLicense: Warnings:<nil> ServerErrors:[] ClientInfo:{Debug:false Plugins:[map[Name:buildx Path:/usr/local/lib/docker/cli-plugins/docker-buildx SchemaVersion:0.1.0 ShortDescription:Docker Buildx Vendor:Docker Inc. Version:v0.8.2] map[Name:compose Path:/usr/local/lib/docker/cli-plugins/docker-compose SchemaVersion:0.1.0 ShortDescription:Docker Compose Vendor:Docker Inc. Version:v2.5.0] map[Name:sbom Path:/usr/local/lib/docker/cli-plugins/docker-sbom SchemaVersion:0.1.0 ShortDescription:View the packaged-based Software Bill Of Materials (SBOM) for an image URL:https://github.com/docker/sbom-cli-plugin Vendor:Anchore Inc. Version:0.6.0] map[Name:scan Path:/usr/local/lib/docker/cli-plugins/docker-scan SchemaVersion:0.1.0 ShortDescription:Docker Scan Vendor:Docker Inc. Version:v0.17.0]] Warnings:<nil>}}
+I0513 17:13:12.272039   64455 out.go:176] ✨  Using the docker driver based on existing profile
+I0513 17:13:12.272102   64455 start.go:281] selected driver: docker
+I0513 17:13:12.272116   64455 start.go:798] validating driver "docker" against &{Name:minikube KeepContext:false EmbedCerts:false MinikubeISO: KicBaseImage:gcr.io/k8s-minikube/kicbase:v0.0.30@sha256:02c921df998f95e849058af14de7045efc3954d90320967418a0d1f182bbc0b2 Memory:4000 CPUs:3 DiskSize:20000 VMDriver: Driver:docker HyperkitVpnKitSock: HyperkitVSockPorts:[] DockerEnv:[] ContainerVolumeMounts:[] InsecureRegistry:[ctlptl-registry:5000] RegistryMirror:[] HostOnlyCIDR:192.168.59.1/24 HypervVirtualSwitch: HypervUseExternalSwitch:false HypervExternalAdapter: KVMNetwork:default KVMQemuURI:qemu:///system KVMGPU:false KVMHidden:false KVMNUMACount:1 DockerOpt:[] DisableDriverMounts:false NFSShare:[] NFSSharesRoot:/nfsshares UUID: NoVTXCheck:false DNSProxy:false HostDNSResolver:true HostOnlyNicType:virtio NatNicType:virtio SSHIPAddress: SSHUser:root SSHKey: SSHPort:22 KubernetesConfig:{KubernetesVersion:v1.23.3 ClusterName:minikube Namespace:default APIServerName:minikubeCA APIServerNames:[] APIServerIPs:[] DNSDomain:cluster.local ContainerRuntime:containerd CRISocket: NetworkPlugin:cni FeatureGates: ServiceCIDR:10.96.0.0/12 ImageRepository: LoadBalancerStartIP: LoadBalancerEndIP: CustomIngressCert: ExtraOptions:[{Component:kubelet Key:max-pods Value:500} {Component:kubelet Key:housekeeping-interval Value:5m} {Component:kubelet Key:cni-conf-dir Value:/etc/cni/net.mk}] ShouldLoadCachedImages:true EnableDefaultCNI:false CNI: NodeIP: NodePort:8443 NodeName:} Nodes:[{Name: IP: Port:8443 KubernetesVersion:v1.23.3 ContainerRuntime:containerd ControlPlane:true Worker:true}] Addons:map[ambassador:false auto-pause:false csi-hostpath-driver:false dashboard:true default-storageclass:true efk:false freshpod:false gcp-auth:false gvisor:false helm-tiller:false ingress:false ingress-dns:false istio:false istio-provisioner:false kong:false kubevirt:false logviewer:false metallb:false metrics-server:false nvidia-driver-installer:false nvidia-gpu-device-plugin:false olm:false pod-security-policy:false portainer:false registry:false registry-aliases:false registry-creds:false storage-provisioner:true storage-provisioner-gluster:false volumesnapshots:false] CustomAddonImages:map[] CustomAddonRegistries:map[] VerifyComponents:map[apiserver:true system_pods:true] StartHostTimeout:6m0s ScheduledStop:<nil> ExposedPorts:[] ListenAddress: Network: MultiNodeRequested:false ExtraDisks:0 CertExpiration:26280h0m0s Mount:false MountString:/Users:/minikube-host Mount9PVersion:9p2000.L MountGID:docker MountIP: MountMSize:262144 MountOptions:[] MountPort:0 MountType:9p MountUID:docker BinaryMirror: DisableOptimizations:false}
+I0513 17:13:12.272380   64455 start.go:809] status for docker: {Installed:true Healthy:true Running:false NeedsImprovement:false Error:<nil> Reason: Fix: Doc: Version:}
+I0513 17:13:12.273023   64455 cli_runner.go:133] Run: docker system info --format "{{json .}}"
+I0513 17:13:12.603074   64455 info.go:263] docker info: {ID:HMK4:3R3N:GQVZ:IA67:XZ5T:PHAT:ZV5J:5LYL:WQUJ:C6CW:NF45:HONQ Containers:2 ContainersRunning:1 ContainersPaused:0 ContainersStopped:1 Images:23 Driver:overlay2 DriverStatus:[[Backing Filesystem extfs] [Supports d_type true] [Native Overlay Diff true] [userxattr false]] SystemStatus:<nil> Plugins:{Volume:[local] Network:[bridge host ipvlan macvlan null overlay] Authorization:<nil> Log:[awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog]} MemoryLimit:true SwapLimit:true KernelMemory:false KernelMemoryTCP:false CPUCfsPeriod:true CPUCfsQuota:true CPUShares:true CPUSet:true PidsLimit:true IPv4Forwarding:true BridgeNfIptables:true BridgeNfIP6Tables:true Debug:false NFd:54 OomKillDisable:false NGoroutines:54 SystemTime:2022-05-13 22:13:12.449345253 +0000 UTC LoggingDriver:json-file CgroupDriver:cgroupfs NEventsListener:4 KernelVersion:5.10.104-linuxkit OperatingSystem:Docker Desktop OSType:linux Architecture:x86_64 IndexServerAddress:https://index.docker.io/v1/ RegistryConfig:{AllowNondistributableArtifactsCIDRs:[] AllowNondistributableArtifactsHostnames:[] InsecureRegistryCIDRs:[127.0.0.0/8] IndexConfigs:{DockerIo:{Name:docker.io Mirrors:[] Secure:true Official:true}} Mirrors:[]} NCPU:4 MemTotal:8346968064 GenericResources:<nil> DockerRootDir:/var/lib/docker HTTPProxy:http.docker.internal:3128 HTTPSProxy:http.docker.internal:3128 NoProxy:hubproxy.docker.internal Name:docker-desktop Labels:[] ExperimentalBuild:false ServerVersion:20.10.14 ClusterStore: ClusterAdvertise: Runtimes:{Runc:{Path:runc}} DefaultRuntime:runc Swarm:{NodeID: NodeAddr: LocalNodeState:inactive ControlAvailable:false Error: RemoteManagers:<nil>} LiveRestoreEnabled:false Isolation: InitBinary:docker-init ContainerdCommit:{ID:3df54a852345ae127d1fa3092b95168e4a88e2f8 Expected:3df54a852345ae127d1fa3092b95168e4a88e2f8} RuncCommit:{ID:v1.0.3-0-gf46b6ba Expected:v1.0.3-0-gf46b6ba} InitCommit:{ID:de40ad0 Expected:de40ad0} SecurityOptions:[name=seccomp,profile=default name=cgroupns] ProductLicense: Warnings:<nil> ServerErrors:[] ClientInfo:{Debug:false Plugins:[map[Name:buildx Path:/usr/local/lib/docker/cli-plugins/docker-buildx SchemaVersion:0.1.0 ShortDescription:Docker Buildx Vendor:Docker Inc. Version:v0.8.2] map[Name:compose Path:/usr/local/lib/docker/cli-plugins/docker-compose SchemaVersion:0.1.0 ShortDescription:Docker Compose Vendor:Docker Inc. Version:v2.5.0] map[Name:sbom Path:/usr/local/lib/docker/cli-plugins/docker-sbom SchemaVersion:0.1.0 ShortDescription:View the packaged-based Software Bill Of Materials (SBOM) for an image URL:https://github.com/docker/sbom-cli-plugin Vendor:Anchore Inc. Version:0.6.0] map[Name:scan Path:/usr/local/lib/docker/cli-plugins/docker-scan SchemaVersion:0.1.0 ShortDescription:Docker Scan Vendor:Docker Inc. Version:v0.17.0]] Warnings:<nil>}}
+I0513 17:13:12.603447   64455 cni.go:93] Creating CNI manager for ""
+I0513 17:13:12.603464   64455 cni.go:160] "docker" driver + containerd runtime found, recommending kindnet
+I0513 17:13:12.603482   64455 start_flags.go:302] config:
+{Name:minikube KeepContext:false EmbedCerts:false MinikubeISO: KicBaseImage:gcr.io/k8s-minikube/kicbase:v0.0.30@sha256:02c921df998f95e849058af14de7045efc3954d90320967418a0d1f182bbc0b2 Memory:4000 CPUs:3 DiskSize:20000 VMDriver: Driver:docker HyperkitVpnKitSock: HyperkitVSockPorts:[] DockerEnv:[] ContainerVolumeMounts:[] InsecureRegistry:[ctlptl-registry:5000] RegistryMirror:[] HostOnlyCIDR:192.168.59.1/24 HypervVirtualSwitch: HypervUseExternalSwitch:false HypervExternalAdapter: KVMNetwork:default KVMQemuURI:qemu:///system KVMGPU:false KVMHidden:false KVMNUMACount:1 DockerOpt:[] DisableDriverMounts:false NFSShare:[] NFSSharesRoot:/nfsshares UUID: NoVTXCheck:false DNSProxy:false HostDNSResolver:true HostOnlyNicType:virtio NatNicType:virtio SSHIPAddress: SSHUser:root SSHKey: SSHPort:22 KubernetesConfig:{KubernetesVersion:v1.23.3 ClusterName:minikube Namespace:default APIServerName:minikubeCA APIServerNames:[] APIServerIPs:[] DNSDomain:cluster.local ContainerRuntime:containerd CRISocket: NetworkPlugin:cni FeatureGates: ServiceCIDR:10.96.0.0/12 ImageRepository: LoadBalancerStartIP: LoadBalancerEndIP: CustomIngressCert: ExtraOptions:[{Component:kubelet Key:max-pods Value:500} {Component:kubelet Key:housekeeping-interval Value:5m} {Component:kubelet Key:cni-conf-dir Value:/etc/cni/net.mk}] ShouldLoadCachedImages:true EnableDefaultCNI:false CNI: NodeIP: NodePort:8443 NodeName:} Nodes:[{Name: IP: Port:8443 KubernetesVersion:v1.23.3 ContainerRuntime:containerd ControlPlane:true Worker:true}] Addons:map[ambassador:false auto-pause:false csi-hostpath-driver:false dashboard:true default-storageclass:true efk:false freshpod:false gcp-auth:false gvisor:false helm-tiller:false ingress:false ingress-dns:false istio:false istio-provisioner:false kong:false kubevirt:false logviewer:false metallb:false metrics-server:false nvidia-driver-installer:false nvidia-gpu-device-plugin:false olm:false pod-security-policy:false portainer:false registry:false registry-aliases:false registry-creds:false storage-provisioner:true storage-provisioner-gluster:false volumesnapshots:false] CustomAddonImages:map[] CustomAddonRegistries:map[] VerifyComponents:map[apiserver:true system_pods:true] StartHostTimeout:6m0s ScheduledStop:<nil> ExposedPorts:[] ListenAddress: Network: MultiNodeRequested:false ExtraDisks:0 CertExpiration:26280h0m0s Mount:false MountString:/Users:/minikube-host Mount9PVersion:9p2000.L MountGID:docker MountIP: MountMSize:262144 MountOptions:[] MountPort:0 MountType:9p MountUID:docker BinaryMirror: DisableOptimizations:false}
+I0513 17:13:12.608244   64455 out.go:176] 👍  Starting control plane node minikube in cluster minikube
+I0513 17:13:12.608313   64455 cache.go:120] Beginning downloading kic base image for docker with containerd
+I0513 17:13:12.610111   64455 out.go:176] 🚜  Pulling base image ...
+I0513 17:13:12.610182   64455 preload.go:132] Checking if preload exists for k8s version v1.23.3 and runtime containerd
+I0513 17:13:12.610249   64455 image.go:75] Checking for gcr.io/k8s-minikube/kicbase:v0.0.30@sha256:02c921df998f95e849058af14de7045efc3954d90320967418a0d1f182bbc0b2 in local docker daemon
+I0513 17:13:12.610283   64455 preload.go:148] Found local preload: /Users/utilisateur/.minikube/cache/preloaded-tarball/preloaded-images-k8s-v17-v1.23.3-containerd-overlay2-amd64.tar.lz4
+I0513 17:13:12.610297   64455 cache.go:57] Caching tarball of preloaded images
+I0513 17:13:12.610634   64455 preload.go:174] Found /Users/utilisateur/.minikube/cache/preloaded-tarball/preloaded-images-k8s-v17-v1.23.3-containerd-overlay2-amd64.tar.lz4 in cache, skipping download
+I0513 17:13:12.610656   64455 cache.go:60] Finished verifying existence of preloaded tar for  v1.23.3 on containerd
+I0513 17:13:12.612119   64455 profile.go:148] Saving config to /Users/utilisateur/.minikube/profiles/minikube/config.json ...
+I0513 17:13:12.776341   64455 image.go:79] Found gcr.io/k8s-minikube/kicbase:v0.0.30@sha256:02c921df998f95e849058af14de7045efc3954d90320967418a0d1f182bbc0b2 in local docker daemon, skipping pull
+I0513 17:13:12.776368   64455 cache.go:142] gcr.io/k8s-minikube/kicbase:v0.0.30@sha256:02c921df998f95e849058af14de7045efc3954d90320967418a0d1f182bbc0b2 exists in daemon, skipping load
+I0513 17:13:12.776393   64455 cache.go:208] Successfully downloaded all kic artifacts
+I0513 17:13:12.776512   64455 start.go:313] acquiring machines lock for minikube: {Name:mk3adc64d774904da34b5ed7fc1f3d6f7a58502e Clock:{} Delay:500ms Timeout:10m0s Cancel:<nil>}
+I0513 17:13:12.776757   64455 start.go:317] acquired machines lock for "minikube" in 190.449µs
+I0513 17:13:12.776812   64455 start.go:93] Skipping create...Using existing machine configuration
+I0513 17:13:12.776828   64455 fix.go:55] fixHost starting: 
+I0513 17:13:12.777696   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:13:12.908338   64455 fix.go:108] recreateIfNeeded on minikube: state= err=<nil>
+I0513 17:13:12.908401   64455 fix.go:113] machineExists: false. err=machine does not exist
+I0513 17:13:12.912987   64455 out.go:176] 🤷  docker "minikube" container is missing, will recreate.
+I0513 17:13:12.913057   64455 delete.go:124] DEMOLISHING minikube ...
+I0513 17:13:12.913616   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:13:13.067405   64455 stop.go:79] host is in state 
+I0513 17:13:13.067964   64455 main.go:130] libmachine: Stopping "minikube"...
+I0513 17:13:13.068374   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:13:13.223812   64455 kic_runner.go:93] Run: systemctl --version
+I0513 17:13:13.223833   64455 kic_runner.go:114] Args: [docker exec --privileged minikube systemctl --version]
+I0513 17:13:13.367408   64455 kic_runner.go:93] Run: sudo service kubelet stop
+I0513 17:13:13.367437   64455 kic_runner.go:114] Args: [docker exec --privileged minikube sudo service kubelet stop]
+I0513 17:13:13.518672   64455 openrc.go:165] stop output: 
+** stderr ** 
+Error response from daemon: Container deb09eb2932bacfc74cba0d180f51910919b2e501f9222d6100e89a8d5756629 is not running
+
+** /stderr **
+W0513 17:13:13.519009   64455 kic.go:443] couldn't stop kubelet. will continue with stop anyways: sudo service kubelet stop: exit status 1
+stdout:
+
+stderr:
+Error response from daemon: Container deb09eb2932bacfc74cba0d180f51910919b2e501f9222d6100e89a8d5756629 is not running
+I0513 17:13:13.519400   64455 kic_runner.go:93] Run: sudo service kubelet stop
+I0513 17:13:13.519413   64455 kic_runner.go:114] Args: [docker exec --privileged minikube sudo service kubelet stop]
+I0513 17:13:13.658590   64455 openrc.go:165] stop output: 
+** stderr ** 
+Error response from daemon: Container deb09eb2932bacfc74cba0d180f51910919b2e501f9222d6100e89a8d5756629 is not running
+
+** /stderr **
+W0513 17:13:13.658616   64455 kic.go:445] couldn't force stop kubelet. will continue with stop anyways: sudo service kubelet stop: exit status 1
+stdout:
+
+stderr:
+Error response from daemon: Container deb09eb2932bacfc74cba0d180f51910919b2e501f9222d6100e89a8d5756629 is not running
+I0513 17:13:13.659151   64455 cri.go:52] listing CRI containers in root /run/containerd/runc/k8s.io: {State:all Name: Namespaces:[kube-system kubernetes-dashboard storage-gluster istio-operator]}
+I0513 17:13:13.659533   64455 kic_runner.go:93] Run: sudo -s eval "crictl ps -a --quiet --label io.kubernetes.pod.namespace=kube-system; crictl ps -a --quiet --label io.kubernetes.pod.namespace=kubernetes-dashboard; crictl ps -a --quiet --label io.kubernetes.pod.namespace=storage-gluster; crictl ps -a --quiet --label io.kubernetes.pod.namespace=istio-operator"
+I0513 17:13:13.659544   64455 kic_runner.go:114] Args: [docker exec --privileged minikube sudo -s eval crictl ps -a --quiet --label io.kubernetes.pod.namespace=kube-system; crictl ps -a --quiet --label io.kubernetes.pod.namespace=kubernetes-dashboard; crictl ps -a --quiet --label io.kubernetes.pod.namespace=storage-gluster; crictl ps -a --quiet --label io.kubernetes.pod.namespace=istio-operator]
+I0513 17:13:13.826216   64455 kic.go:456] unable list containers : crictl list: sudo -s eval "crictl ps -a --quiet --label io.kubernetes.pod.namespace=kube-system; crictl ps -a --quiet --label io.kubernetes.pod.namespace=kubernetes-dashboard; crictl ps -a --quiet --label io.kubernetes.pod.namespace=storage-gluster; crictl ps -a --quiet --label io.kubernetes.pod.namespace=istio-operator": exit status 1
+stdout:
+
+stderr:
+Error response from daemon: Container deb09eb2932bacfc74cba0d180f51910919b2e501f9222d6100e89a8d5756629 is not running
+I0513 17:13:13.826258   64455 kic.go:466] successfully stopped kubernetes!
+I0513 17:13:13.829738   64455 kic_runner.go:93] Run: pgrep kube-apiserver
+I0513 17:13:13.829749   64455 kic_runner.go:114] Args: [docker exec --privileged minikube pgrep kube-apiserver]
+I0513 17:13:14.121710   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:13:17.261479   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:13:20.437021   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:13:23.599522   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:13:26.740840   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:13:29.884088   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:13:33.063376   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:13:36.199324   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:13:39.343741   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:13:42.497133   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:13:45.655268   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:13:48.793394   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:13:51.970470   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:13:55.114090   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:13:58.258770   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:14:01.401028   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:14:04.558157   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:14:07.719251   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:14:10.873407   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:14:14.010480   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:14:17.158213   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:14:20.341611   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:14:23.585158   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:14:26.740087   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:14:29.892102   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:14:33.038924   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:14:36.191330   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:14:39.330441   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:14:42.567069   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:14:45.709407   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:14:48.845924   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:14:52.009139   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:14:55.146958   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:14:58.305215   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:15:01.538923   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:15:04.726033   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:15:07.889454   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:15:11.040867   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:15:14.327285   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:15:17.476230   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:15:20.611683   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:15:23.770945   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:15:26.913668   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:15:30.060437   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:15:33.227955   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:15:36.390832   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:15:39.541907   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:15:42.692609   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:15:45.861846   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:15:49.009384   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:15:52.155114   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:15:55.296340   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:15:58.434864   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:16:01.687255   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:16:04.912594   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:16:08.061861   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:16:11.208505   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:16:14.347083   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:16:17.517627   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:16:20.648121   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:16:23.864281   64455 stop.go:59] stop err: Maximum number of retries (60) exceeded
+I0513 17:16:23.864343   64455 delete.go:129] stophost failed (probably ok): Temporary Error: stop: Maximum number of retries (60) exceeded
+I0513 17:16:23.865629   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+W0513 17:16:24.026358   64455 delete.go:135] deletehost failed: Docker machine "minikube" does not exist. Use "docker-machine ls" to list machines. Use "docker-machine create" to add a new one.
+I0513 17:16:24.026750   64455 cli_runner.go:133] Run: docker container inspect -f {{.Id}} minikube
+I0513 17:16:24.200063   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:16:24.332947   64455 cli_runner.go:133] Run: docker exec --privileged -t minikube /bin/bash -c "sudo init 0"
+W0513 17:16:24.497737   64455 cli_runner.go:180] docker exec --privileged -t minikube /bin/bash -c "sudo init 0" returned with exit code 1
+I0513 17:16:24.497802   64455 oci.go:659] error shutdown minikube: docker exec --privileged -t minikube /bin/bash -c "sudo init 0": exit status 1
+stdout:
+
+stderr:
+Error response from daemon: Container deb09eb2932bacfc74cba0d180f51910919b2e501f9222d6100e89a8d5756629 is not running
+I0513 17:16:25.500844   64455 cli_runner.go:133] Run: docker container inspect minikube --format={{.State.Status}}
+I0513 17:16:25.645950   64455 oci.go:673] temporary error: container minikube status is  but expect it to be exited
+I0513 17:16:25.645992   64455 oci.go:679] Successfully shutdown container minikube
+I0513 17:16:25.646304   64455 cli_runner.go:133] Run: docker rm -f -v minikube
+I0513 17:16:25.858382   64455 cli_runner.go:133] Run: docker container inspect -f {{.Id}} minikube
+W0513 17:16:26.068816   64455 cli_runner.go:180] docker container inspect -f {{.Id}} minikube returned with exit code 1
+I0513 17:16:26.069379   64455 cli_runner.go:133] Run: docker network inspect minikube --format "{"Name": "{{.Name}}","Driver": "{{.Driver}}","Subnet": "{{range .IPAM.Config}}{{.Subnet}}{{end}}","Gateway": "{{range .IPAM.Config}}{{.Gateway}}{{end}}","MTU": {{if (index .Options "com.docker.network.driver.mtu")}}{{(index .Options "com.docker.network.driver.mtu")}}{{else}}0{{end}}, "ContainerIPs": [{{range $k,$v := .Containers }}"{{$v.IPv4Address}}",{{end}}]}"
+I0513 17:16:26.260585   64455 cli_runner.go:133] Run: docker network rm minikube
+W0513 17:16:26.569759   64455 cli_runner.go:180] docker network rm minikube returned with exit code 1
+W0513 17:16:26.569826   64455 kic.go:379] failed to remove network (which might be okay) minikube: unable to delete a network that is attached to a running container
+W0513 17:16:26.572658   64455 delete.go:139] delete failed (probably ok) <nil>
+I0513 17:16:26.572675   64455 fix.go:120] Sleeping 1 second for extra luck!
+I0513 17:16:27.576503   64455 start.go:126] createHost starting for "" (driver="docker")
+I0513 17:16:27.582151   64455 out.go:203] 🔥  Creating docker container (CPUs=3, Memory=4000MB) ...
+I0513 17:16:27.582503   64455 start.go:160] libmachine.API.Create for "minikube" (driver="docker")
+I0513 17:16:27.582602   64455 client.go:168] LocalClient.Create starting
+I0513 17:16:27.582971   64455 main.go:130] libmachine: Reading certificate data from /Users/utilisateur/.minikube/certs/ca.pem
+I0513 17:16:27.583949   64455 main.go:130] libmachine: Decoding PEM data...
+I0513 17:16:27.584000   64455 main.go:130] libmachine: Parsing certificate...
+I0513 17:16:27.584157   64455 main.go:130] libmachine: Reading certificate data from /Users/utilisateur/.minikube/certs/cert.pem
+I0513 17:16:27.584468   64455 main.go:130] libmachine: Decoding PEM data...
+I0513 17:16:27.584494   64455 main.go:130] libmachine: Parsing certificate...
+I0513 17:16:27.586387   64455 cli_runner.go:133] Run: docker network inspect minikube --format "{"Name": "{{.Name}}","Driver": "{{.Driver}}","Subnet": "{{range .IPAM.Config}}{{.Subnet}}{{end}}","Gateway": "{{range .IPAM.Config}}{{.Gateway}}{{end}}","MTU": {{if (index .Options "com.docker.network.driver.mtu")}}{{(index .Options "com.docker.network.driver.mtu")}}{{else}}0{{end}}, "ContainerIPs": [{{range $k,$v := .Containers }}"{{$v.IPv4Address}}",{{end}}]}"
+I0513 17:16:27.859363   64455 network_create.go:67] Found existing network {name:minikube subnet:0xc000ab1d10 gateway:[0 0 0 0 0 0 0 0 0 0 255 255 192 168 49 1] mtu:1500}
+I0513 17:16:27.859451   64455 kic.go:106] calculated static IP "192.168.49.2" for the "minikube" container
+I0513 17:16:27.859940   64455 cli_runner.go:133] Run: docker ps -a --format {{.Names}}
+I0513 17:16:28.627186   64455 cli_runner.go:133] Run: docker volume create minikube --label name.minikube.sigs.k8s.io=minikube --label created_by.minikube.sigs.k8s.io=true
+I0513 17:16:28.942462   64455 oci.go:102] Successfully created a docker volume minikube
+I0513 17:16:28.942849   64455 cli_runner.go:133] Run: docker run --rm --name minikube-preload-sidecar --label created_by.minikube.sigs.k8s.io=true --label name.minikube.sigs.k8s.io=minikube --entrypoint /usr/bin/test -v minikube:/var gcr.io/k8s-minikube/kicbase:v0.0.30@sha256:02c921df998f95e849058af14de7045efc3954d90320967418a0d1f182bbc0b2 -d /var/lib
+I0513 17:16:30.741714   64455 cli_runner.go:186] Completed: docker run --rm --name minikube-preload-sidecar --label created_by.minikube.sigs.k8s.io=true --label name.minikube.sigs.k8s.io=minikube --entrypoint /usr/bin/test -v minikube:/var gcr.io/k8s-minikube/kicbase:v0.0.30@sha256:02c921df998f95e849058af14de7045efc3954d90320967418a0d1f182bbc0b2 -d /var/lib: (1.798813384s)
+I0513 17:16:30.741769   64455 oci.go:106] Successfully prepared a docker volume minikube
+I0513 17:16:30.741837   64455 preload.go:132] Checking if preload exists for k8s version v1.23.3 and runtime containerd
+I0513 17:16:30.741863   64455 kic.go:179] Starting extracting preloaded images to volume ...
+I0513 17:16:30.742314   64455 cli_runner.go:133] Run: docker run --rm --entrypoint /usr/bin/tar -v /Users/utilisateur/.minikube/cache/preloaded-tarball/preloaded-images-k8s-v17-v1.23.3-containerd-overlay2-amd64.tar.lz4:/preloaded.tar:ro -v minikube:/extractDir gcr.io/k8s-minikube/kicbase:v0.0.30@sha256:02c921df998f95e849058af14de7045efc3954d90320967418a0d1f182bbc0b2 -I lz4 -xf /preloaded.tar -C /extractDir
+I0513 17:17:04.439938   64455 cli_runner.go:186] Completed: docker run --rm --entrypoint /usr/bin/tar -v /Users/utilisateur/.minikube/cache/preloaded-tarball/preloaded-images-k8s-v17-v1.23.3-containerd-overlay2-amd64.tar.lz4:/preloaded.tar:ro -v minikube:/extractDir gcr.io/k8s-minikube/kicbase:v0.0.30@sha256:02c921df998f95e849058af14de7045efc3954d90320967418a0d1f182bbc0b2 -I lz4 -xf /preloaded.tar -C /extractDir: (33.698461393s)
+I0513 17:17:04.440022   64455 kic.go:188] duration metric: took 33.699105 seconds to extract preloaded images to volume
+I0513 17:17:04.440932   64455 cli_runner.go:133] Run: docker info --format "'{{json .SecurityOptions}}'"
+I0513 17:17:05.969224   64455 cli_runner.go:186] Completed: docker info --format "'{{json .SecurityOptions}}'": (1.528293199s)
+I0513 17:17:05.969528   64455 cli_runner.go:133] Run: docker run -d -t --privileged --device /dev/fuse --security-opt seccomp=unconfined --tmpfs /tmp --tmpfs /run -v /lib/modules:/lib/modules:ro --hostname minikube --name minikube --label created_by.minikube.sigs.k8s.io=true --label name.minikube.sigs.k8s.io=minikube --label role.minikube.sigs.k8s.io= --label mode.minikube.sigs.k8s.io=minikube --network minikube --ip 192.168.49.2 --volume minikube:/var --security-opt apparmor=unconfined --memory=4000mb --memory-swap=4000mb --cpus=3 -e container=docker --expose 8443 --publish=127.0.0.1::8443 --publish=127.0.0.1::22 --publish=127.0.0.1::2376 --publish=127.0.0.1::5000 --publish=127.0.0.1::32443 gcr.io/k8s-minikube/kicbase:v0.0.30@sha256:02c921df998f95e849058af14de7045efc3954d90320967418a0d1f182bbc0b2
+W0513 17:17:06.312198   64455 cli_runner.go:180] docker run -d -t --privileged --device /dev/fuse --security-opt seccomp=unconfined --tmpfs /tmp --tmpfs /run -v /lib/modules:/lib/modules:ro --hostname minikube --name minikube --label created_by.minikube.sigs.k8s.io=true --label name.minikube.sigs.k8s.io=minikube --label role.minikube.sigs.k8s.io= --label mode.minikube.sigs.k8s.io=minikube --network minikube --ip 192.168.49.2 --volume minikube:/var --security-opt apparmor=unconfined --memory=4000mb --memory-swap=4000mb --cpus=3 -e container=docker --expose 8443 --publish=127.0.0.1::8443 --publish=127.0.0.1::22 --publish=127.0.0.1::2376 --publish=127.0.0.1::5000 --publish=127.0.0.1::32443 gcr.io/k8s-minikube/kicbase:v0.0.30@sha256:02c921df998f95e849058af14de7045efc3954d90320967418a0d1f182bbc0b2 returned with exit code 125
+I0513 17:17:06.312429   64455 client.go:171] LocalClient.Create took 38.730895952s
+I0513 17:17:08.316307   64455 ssh_runner.go:195] Run: sh -c "df -h /var | awk 'NR==2{print $5}'"
+I0513 17:17:08.316762   64455 cli_runner.go:133] Run: docker container inspect -f "'{{(index (index .NetworkSettings.Ports "22/tcp") 0).HostPort}}'" minikube
+W0513 17:17:08.460931   64455 cli_runner.go:180] docker container inspect -f "'{{(index (index .NetworkSettings.Ports "22/tcp") 0).HostPort}}'" minikube returned with exit code 1
+I0513 17:17:08.461134   64455 retry.go:31] will retry after 276.165072ms: new client: new client: Error creating new ssh host from driver: Error getting ssh port for driver: get ssh host-port: unable to inspect a not running container to get SSH port
+I0513 17:17:08.737864   64455 cli_runner.go:133] Run: docker container inspect -f "'{{(index (index .NetworkSettings.Ports "22/tcp") 0).HostPort}}'" minikube
+W0513 17:17:08.874254   64455 cli_runner.go:180] docker container inspect -f "'{{(index (index .NetworkSettings.Ports "22/tcp") 0).HostPort}}'" minikube returned with exit code 1
+I0513 17:17:08.874418   64455 retry.go:31] will retry after 540.190908ms: new client: new client: Error creating new ssh host from driver: Error getting ssh port for driver: get ssh host-port: unable to inspect a not running container to get SSH port
+I0513 17:17:09.418616   64455 cli_runner.go:133] Run: docker container inspect -f "'{{(index (index .NetworkSettings.Ports "22/tcp") 0).HostPort}}'" minikube
+W0513 17:17:09.569578   64455 cli_runner.go:180] docker container inspect -f "'{{(index (index .NetworkSettings.Ports "22/tcp") 0).HostPort}}'" minikube returned with exit code 1
+I0513 17:17:09.569685   64455 retry.go:31] will retry after 655.06503ms: new client: new client: Error creating new ssh host from driver: Error getting ssh port for driver: get ssh host-port: unable to inspect a not running container to get SSH port
+I0513 17:17:10.233725   64455 cli_runner.go:133] Run: docker container inspect -f "'{{(index (index .NetworkSettings.Ports "22/tcp") 0).HostPort}}'" minikube
+W0513 17:17:10.388614   64455 cli_runner.go:180] docker container inspect -f "'{{(index (index .NetworkSettings.Ports "22/tcp") 0).HostPort}}'" minikube returned with exit code 1
+W0513 17:17:10.388851   64455 start.go:257] error running df -h /var: NewSession: new client: new client: Error creating new ssh host from driver: Error getting ssh port for driver: get ssh host-port: unable to inspect a not running container to get SSH port
+W0513 17:17:10.388869   64455 start.go:239] error getting percentage of /var that is free: NewSession: new client: new client: Error creating new ssh host from driver: Error getting ssh port for driver: get ssh host-port: unable to inspect a not running container to get SSH port
+I0513 17:17:10.388882   64455 start.go:129] duration metric: createHost completed in 42.81355051s
+I0513 17:17:10.389088   64455 ssh_runner.go:195] Run: sh -c "df -h /var | awk 'NR==2{print $5}'"
+I0513 17:17:10.389244   64455 cli_runner.go:133] Run: docker container inspect -f "'{{(index (index .NetworkSettings.Ports "22/tcp") 0).HostPort}}'" minikube
+W0513 17:17:10.552409   64455 cli_runner.go:180] docker container inspect -f "'{{(index (index .NetworkSettings.Ports "22/tcp") 0).HostPort}}'" minikube returned with exit code 1
+I0513 17:17:10.552558   64455 retry.go:31] will retry after 231.159374ms: new client: new client: Error creating new ssh host from driver: Error getting ssh port for driver: get ssh host-port: unable to inspect a not running container to get SSH port
+I0513 17:17:10.786571   64455 cli_runner.go:133] Run: docker container inspect -f "'{{(index (index .NetworkSettings.Ports "22/tcp") 0).HostPort}}'" minikube
+W0513 17:17:10.967619   64455 cli_runner.go:180] docker container inspect -f "'{{(index (index .NetworkSettings.Ports "22/tcp") 0).HostPort}}'" minikube returned with exit code 1
+I0513 17:17:10.967782   64455 retry.go:31] will retry after 445.058653ms: new client: new client: Error creating new ssh host from driver: Error getting ssh port for driver: get ssh host-port: unable to inspect a not running container to get SSH port
+I0513 17:17:11.413928   64455 cli_runner.go:133] Run: docker container inspect -f "'{{(index (index .NetworkSettings.Ports "22/tcp") 0).HostPort}}'" minikube
+W0513 17:17:11.563848   64455 cli_runner.go:180] docker container inspect -f "'{{(index (index .NetworkSettings.Ports "22/tcp") 0).HostPort}}'" minikube returned with exit code 1
+I0513 17:17:11.563998   64455 retry.go:31] will retry after 318.170823ms: new client: new client: Error creating new ssh host from driver: Error getting ssh port for driver: get ssh host-port: unable to inspect a not running container to get SSH port
+I0513 17:17:11.883228   64455 cli_runner.go:133] Run: docker container inspect -f "'{{(index (index .NetworkSettings.Ports "22/tcp") 0).HostPort}}'" minikube
+W0513 17:17:12.033572   64455 cli_runner.go:180] docker container inspect -f "'{{(index (index .NetworkSettings.Ports "22/tcp") 0).HostPort}}'" minikube returned with exit code 1
+W0513 17:17:12.033697   64455 start.go:257] error running df -h /var: NewSession: new client: new client: Error creating new ssh host from driver: Error getting ssh port for driver: get ssh host-port: unable to inspect a not running container to get SSH port
+W0513 17:17:12.033711   64455 start.go:239] error getting percentage of /var that is free: NewSession: new client: new client: Error creating new ssh host from driver: Error getting ssh port for driver: get ssh host-port: unable to inspect a not running container to get SSH port
+I0513 17:17:12.033724   64455 fix.go:57] fixHost completed within 3m59.263597397s
+I0513 17:17:12.033732   64455 start.go:80] releasing machines lock for "minikube", held for 3m59.263657408s
+W0513 17:17:12.033762   64455 start.go:570] error starting host: recreate: creating host: create: creating: create kic node: create container: can't create with that IP, address already in use
+I0513 17:17:12.033784   64455 start.go:580] will skip retrying to create machine because error is not retriable: can't create with that IP, address already in use
+I0513 17:17:12.038194   64455 out.go:176] 
+W0513 17:17:12.038464   64455 out.go:241] ❌  Exiting due to GUEST_PROVISION: Failed to start host: can't create with that IP, address already in use
+W0513 17:17:12.038491   64455 out.go:241] 
+W0513 17:17:12.040659   64455 out.go:241] [31m╭───────────────────────────────────────────────────────────────────────────────────────────╮[0m
+[31m│[0m                                                                                           [31m│[0m
+[31m│[0m    😿  If the above advice does not help, please let us know:                             [31m│[0m
+[31m│[0m    👉  https://github.com/kubernetes/minikube/issues/new/choose                           [31m│[0m
+[31m│[0m                                                                                           [31m│[0m
+[31m│[0m    Please run `minikube logs --file=logs.txt` and attach logs.txt to the GitHub issue.    [31m│[0m
+[31m│[0m                                                                                           [31m│[0m
+[31m╰───────────────────────────────────────────────────────────────────────────────────────────╯[0m
+
+* 

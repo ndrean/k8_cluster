@@ -1,0 +1,31 @@
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  name: discoverer
+
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: pods-reader
+  namespace: default
+rules:
+  - apiGroups: [""]
+    resources: ["endpoints", "pods"]
+    verbs: ["list", "get", "watch"]
+
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: read-pods-tester
+  namespace: default
+subjects:
+  - kind: ServiceAccount #User
+    name: discoverer # system:serviceaccount:default:default
+    namespace: default
+    # apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: pods-reader
+  apiGroup: rbac.authorization.k8s.io

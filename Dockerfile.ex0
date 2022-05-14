@@ -1,0 +1,21 @@
+FROM elixir:1.13.4-alpine AS build
+
+# docker build --build-arg MIX_ENV=prod
+ARG MIX_ENV
+
+# let the ENV variable (runtime) be the same as the build argument
+# docker run -e (or --env_file)
+ENV MIX_ENV=${MIX_ENV:-dev}
+
+
+
+WORKDIR /app
+RUN mix local.hex --force
+
+# ENTRYPOINT ["./entrypoint.sh"]
+CMD ["sh"]
+
+
+# if bare elixir, do:
+# docker run --mount type=bind,src=$(pwd),dst=/app  --rm localhost:5000/elixir-min mix deps.get && mix deps.compile && iex --sname a -S mix
+# docker run -v "$(pwd)":/app --rm elixir-min mix deps.get && mix deps.compile && iex --sname a -S mix
