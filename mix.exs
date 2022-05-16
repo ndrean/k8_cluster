@@ -23,7 +23,9 @@ defmodule K8Cluster.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:libcluster, "~> 3.3"}
+      {:libcluster, "~> 3.3"},
+      # <- test for `rebar`
+      {:poolboy, "~> 1.5"}
     ]
   end
 

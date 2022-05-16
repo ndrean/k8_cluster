@@ -3,22 +3,62 @@
 [A word](http://blog.plataformatec.com.br/2019/10/kubernetes-and-the-erlang-vm-orchestration-on-the-large-and-the-small/)
 
 Setup of a cluster of connected Erlang nodes within a Kubernetes cluster with `libcluster`.
-We have no endpoint, no HTTP comminication in this app. The only communication will be within the TCP connection between e-nodes encapsulated in a k8-pod.
+We have no endpoint, no HTTP communication in this app. The only communication will be within the TCP connection between e-nodes encapsulated in a k8-pod, and k8 itself via it's TCP connections.
 
-Two dockerfiles will produce respectively a release (**Dockerfile.rel**, image of 20 Mb) and an IEX shell (**Dockerfile.iex**, image of 150Mb) from the same app.
+Two dockerfiles will produce respectively a release (**Dockerfile.rel**, image of 20 Mb) and an IEX shell (**Dockerfile.mix**, image of 150Mb) from the same app.
 We spin-up several pods of the release, and one shell to interact with the releases via `:rpc.call(remote_node, Module, function, args)`.
 
-The library `libcluster` will give automatic connection of the releases with `Cluster.Strategy.Kubernetes`, whith `kubernetes_ip_lookup_mode: :pods` and `mod: :ip`.
-The shell has just a `CMD ["sh"]` since we don't know have an IP addresspod will automatically connect once we exec `iex -S mix`:
+The library `libcluster` will give automatic connection of the releases with the topology `Cluster.Strategy.Kubernetes`, with:
+
+- `kubernetes_ip_lookup_mode: :pods`
+- `mod: :ip`,
+- and a `ServiceAccount` set.
+
+## Namespace
+
+Added a namespace to isolate the whole. The namespace has to be added in the app for `libcluster` and set by `kubectl`. Create the ns with `kubectl` and set the namespace with `kubens`:
 
 ```bash
-kubectl exec -it runner-5696b7f8cf-4k9g9 -- iex --name "k8_cluster@10.244.0.11" --cookie "release_secret" -S mix
+>kubectl create namespace stage
+namespace/stage created
+
+> kubens stage
+Context "minikube" modified.
+Active namespace is "stage".
+
+> kubens
+kube-node-lease
+kube-public
+kube-system
+*stage
 ```
 
+## Launch
+
 ```bash
-> export POD_IP=app@127.0.0.1
-> echo $POD_IP | sed 's/\./-/g'
-app@127-0-0-1
+> ctlptl apply -f k8/ctlptl-minikube-cluster-reg.yml
+Switched to context "minikube".
+cluster.ctlptl.dev/minikube created
+
+> ctlptl get
+CURRENT   NAME       PRODUCT    AGE   REGISTRY
+*         minikube   minikube   13m   localhost:64612
+
+> ctlptl get registry
+NAME                       HOST ADDRESS      CONTAINER ADDRESS   AGE
+ctlptl-minikube-registry   127.0.0.1:64612   172.17.0.2:5000     16m
+
+> The shell has just a `CMD ["sh"]`. The pod will automatically connect once we `kubectl exec -it runner-pod-name -- sh` and the following in the pod shell:
+
+```bash
+> kubectl get pods -o wide
+
+NAME                    STATUS    IP            NODE
+myapp-d4444db6d-m9m82   Running   10.244.0.48   minikube
+
+> kubectl exec -it runner-5696b7f8cf-4k9g9 -- sh
+
+bash# iex --cookie "$(echo $ERLANG_COOKIE)" --name "$(echo k8_cluster@$(echo $POD_IP))" -S mix
 ```
 
 ## Cookies
@@ -44,13 +84,8 @@ iex> Base.url_encode64(:crypto.strong_rand_bytes(40))
 >kubectl --namespace myapp create secret generic erlang-cookie --from-literal=cookie="$ERLANG_COOKIE"
 ```
 
-Remember:
-
-Secrets are scoped to the namespace, so you might want to put your app name as a prefix, unless you’re using a dedicated namespace.
-A secret can contain multiple items. The example above uses cookie as the key.
-Secrets aren’t actually that secret. Fortunately, Erlang cookies aren’t actually that secret either.
-
-and the environmental varaibles for a deployment:
+Remember: secrets are scoped to the namespace, so you might want to put your app name as a prefix, unless you’re using a dedicated namespace. A secret can contain multiple items. The example above uses cookie as the key. Secrets aren’t actually that secret. Fortunately, Erlang cookies aren’t actually that secret either.
+Set the environmental variables for a deployment:
 
 ```yml
 containers:
@@ -69,50 +104,30 @@ containers:
 
 [Access k8 API from within a pod](https://blog.differentpla.net/blog/2022/01/16/k8s-api-elixir-container/) using `:httpc` so simply (compared to Ruby!!), and the [k8s](https://hexdocs.pm/k8s/readme.html) package.
 
-## Local registry: `Ctlplt`
+## Local registry: `ctlplt`
 
-Create a local registry for Docker images to be used by k8. No more needed to push Docker images to the Docker hub.
-
-```bash
-cat <<EOF | ctlptl apply -f -
-apiVersion: ctlptl.dev/v1alpha1
-kind: Cluster
-product: minikube
-registry: ctlptl-registry
-kubernetesVersion: v1.23.3
-EOF
-```
+Create a local registry for Docker images to be used by `k3d` or `minikube`. No more needed to push Docker images to the Docker hub. The images wil lbe registred under `172.17.0.2:5000:my-image`
 
 - Create registry: `ctlptl apply -f ctlptl-registry.yml`
 - Delete cluster: `ctlptl delete -f ctlptl-registry.yml`
 - Check registries: `ctlptl get registry`
+
+```txt
 NAME              HOST ADDRESS     CONTAINER ADDRESS   AGE
 ctlptl-registry   127.0.0.1:5000   172.17.0.2:5000     6m
+```
+
+Then Tilt will use this local registry and not go to the Docker hub.
 
 ## Tiltfile
 
-```python
-docker_build('rel-cluster', '.', dockerfile="Dockerfile.rel")
-```
-
-and reference containers.image: rel-cluster in the k8 manifest.
-
-- build and tag the Dockerfile
-`docker build -t cluster-of-rel -f k8/Dockerfile.rel .`
-
-- build the image to the local registry:
-`docker push localhost:5000/k8cluster`
-
-- deploy the image:
-`kubectl apply -f k8/myapp.yml` which references the previous image
+Run `tilt up` and `tilt down`.
 
 ## Libcluster
 
 [Source for k8](https://blog.differentpla.net/blog/2022/01/08/libcluster-kubernetes/)
 
 ```bash
-kubectl exec -it myapp-bbf85b547-mnqnq -- iex --name a@10-244-0-34.default.pod.cluster.local -S mix
-
 kubectl get pods -l app=myapp -o json | \
   jq '.items[] | {ip: .status.podIP, namespace: .metadata.namespace}'
 
@@ -129,19 +144,9 @@ kubectl get pods -l app=myapp -o json | \
 }
 ```
 
-kubectl get pods -o wide
-NAME                    STATUS    IP            NODE
-myapp-d4444db6d-m9m82   Running   10.244.0.48   minikube
-
-kubectl exec -it myapp-d4444db6d-m9m82 -- iex --name k8_cluster@10.244.0.48 -S mix
-
-iex --cookie "$(echo $ERLANG_COOKIE)" --name "$(echo k8_cluster@$(echo $POD_IP))" -S mix
-
-:rpc.call(:"k8_cluster@10.244.0.45", K8Cluster, :hello, [] )
-"Hello world"
-
 ## Docker comamnds
 
+```bash
 docker build  -t elixcluster -f Dockerfile.ex
 
 docker network create erl-cluster
@@ -152,6 +157,8 @@ docker build -t localhost:5000/k8cluster
 
 docker run --rm  -it --user=root caching:test
 
-If bare elixir, do
+# If bare elixir, do
 docker run --mount type=bind,src=$(pwd),dst=/app  --rm localhost:5000/elixir-min mix deps.get && mix deps.compile && iex --sname a -S mix
+
 docker run -v "$(pwd)":/app --rm elixir-min mix deps.get && mix deps.compile && iex --sname a -S mix
+```

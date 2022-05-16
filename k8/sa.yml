@@ -2,30 +2,34 @@ kind: ServiceAccount
 apiVersion: v1
 metadata:
   name: discoverer
+  namespace: stage
 
 ---
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: pods-reader
-  namespace: default
+  name: reader
+  namespace: stage
 rules:
   - apiGroups: [""]
-    resources: ["endpoints", "pods"]
-    verbs: ["list", "get", "watch"]
+    resources: ["pods", "endpoints  "]
+    verbs: ["*"]
 
 ---
+# links the service-accout "discoverer" to the role "pods-reader".
+# Note that the ns of the role is referenced in the role-binding ns
+
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: read-pods-tester
-  namespace: default
+  name: binder
+  namespace: stage
 subjects:
   - kind: ServiceAccount #User
-    name: discoverer # system:serviceaccount:default:default
-    namespace: default
-    # apiGroup: rbac.authorization.k8s.io
+    name: discoverer # system:serviceaccount:name
+    namespace: stage # system:serviceaccount:namespace
+    apiGroup: "" # rbac.authorization.k8s.io
 roleRef:
   kind: Role
-  name: pods-reader
-  apiGroup: rbac.authorization.k8s.io
+  name: reader # system.clusterrole:name
+  apiGroup: "" # rbac.authorization.k8s.io

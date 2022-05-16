@@ -6,20 +6,29 @@ RUN elixir -v
 # Accept MIX_ENV as build arg
 ARG MIX_ENV=${MIX_ENV:-dev}
 ARG REL_NAME=${REL_NAME:-myapp}
+# ENV HEX_MIRROR=https://repo.hex.pm
+
 
 # Set current working directory for next steps
 WORKDIR /opt/release
 
 # Copy all the app files
-COPY . ./
+# COPY . ./
+
+COPY mix.exs mix.lock ./
+COPY config config
 
 # Run dependencies && Create a release with quiet to skip writing progress
-RUN mix deps.get --only $MIX_ENV \
-   && mix release ${REL_NAME} --quiet
+RUN mix do deps.get --only $MIX_ENV
+COPY lib ./lib
+COPY rel ./rel
+RUN mix release ${REL_NAME} --quiet
 
 # Create a non-root user && Transfer ownership to app user
 RUN adduser -h /opt/app -D app \
    && chown -R app: _build/
+
+
 
 # Final Stage
 FROM alpine:latest AS app
@@ -44,7 +53,8 @@ WORKDIR /opt/app
 COPY --from=build /opt/release/_build/$MIX_ENV/rel/${REL_NAME} ./
 
 # COPY entrypoint.sh /entrypoint.sh
-# ENTRYPOINT ["/sbin/tini", "--", "/entrypoint.sh"]
+ENTRYPOINT ["/sbin/tini", "--"] 
+# , "/entrypoint.sh"
 
 # Start your app
 CMD ["./bin/myapp", "start"]

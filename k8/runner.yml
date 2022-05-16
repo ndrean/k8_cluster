@@ -2,23 +2,26 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: runner
-  namespace: default
+  namespace: stage
+
 spec:
   replicas: 1
-
   selector:
     matchLabels:
       app: myapp
+
   template:
     metadata:
+      namespace: stage
       labels:
         app: myapp
+
     spec:
       serviceAccountName: discoverer
       containers:
         - name: myapp
-          image: elix-cluster
-          imagePullPolicy: "IfNotPresent"
+          image: mix-cluster
+          imagePullPolicy: "Always" #"IfNotPresent"
           resources:
             limits:
               memory: "256Mi"

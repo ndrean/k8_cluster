@@ -14,7 +14,7 @@ defmodule K8Cluster.Application do
         strategy: Cluster.Strategy.Kubernetes,
         config: [
           mode: :ip,
-          kubernetes_namespace: "default",
+          kubernetes_namespace: Application.get_env(:k8_cluster, :namespace),
           polling_interval: 10_000,
           kubernetes_selector: "app=myapp",
           kubernetes_node_basename: "k8_cluster",
@@ -26,7 +26,7 @@ defmodule K8Cluster.Application do
     cookie = Application.get_env(:k8_cluster, :cookie) |> String.to_atom()
     unless node() == :nonode@nohost, do: Node.set_cookie(node(), cookie)
 
-    Logger.debug("#{K8Cluster.hello()} from #{inspect(node())}", ansi_color: :green)
+    Logger.debug("#{K8Cluster.hello()} from the node #{inspect(node())}", ansi_color: :green)
 
     children = [
       {Cluster.Supervisor, [topologies, [name: K8Cluster.ClusterSupervisor]]}
